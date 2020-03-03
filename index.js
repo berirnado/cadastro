@@ -37,6 +37,18 @@ app.get('/edit',function(req,res){
     res.render('editar.ejs',{})
 })
 
+app.get('/del/:id',function(req,res){
+    console.log(req.params.id)
+    Aluno.findByIdAndDelete(req.params.id,function(err){
+        if(err){
+            res.send(err)
+        }else{
+            res.send("Tudo ok")
+        }
+    });
+    //res.redirect('/');
+})
+
 app.listen(3000,function(){
     console.log("Estou escutando na porta 3000!!")
 })

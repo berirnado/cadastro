@@ -27,7 +27,11 @@
             <th><%=aluno.endereco%></th>
             <th><%=aluno.telefone%></th>
             <th>Edita</th>
-            <th>Deleta</th>
+            <th>
+                <a href="/del/<%=aluno._id%>">
+                    Deleta
+                </a>
+            </th>
         </tr>
         <% }) %>
     </table>
