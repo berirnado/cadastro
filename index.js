@@ -2,10 +2,12 @@ const express = require('express')
 var app = express()
 var bodyparser = require('body-parser')
 var Aluno = require('./model/aluno')
+var flash = require('flash');
 
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: false }))
 app.set('view engine','ejs')
+app.use(flash());
 
 
 //ROUTES
@@ -63,7 +65,7 @@ app.get('/edit/:id',function(req,res){
 //update post
 app.post('/edit/:id',function(req,res){
     res.render('editar.ejs',{
-})
+})})
 
 //delete get
 app.get('/del/:id',function(req,res){
