@@ -39,24 +39,30 @@ app.get('/',function(req,res){
 
 //read post
 app.post('/',function(req,res){
-    res.render('listar.ejs',{})
-})
+    Aluno.find({
+        nome: new RegExp(req.body.pesquisa, 'g')
+    }, 
+    function(err,docs){
+        res.render('listar.ejs',{listaAlunos: docs, msg:""})
+    })
+});
 
 //update get/
 app.get('/edit/:id',function(req,res){
-    res.render('editar.ejs',{})
+    Aluno.findOneAndUpdate(
+        req.body.i,{
+            nome: req.body.nome,
+            endereco: req.body.endereco,
+            telefone: req.body.telefone
+        }, function(err,docs){
+            res.redirect('/');
+        }
+    )
 })
 
 //update post
 app.post('/edit/:id',function(req,res){
     res.render('editar.ejs',{
-        Aluno.findByIdAndUpdate(
-            req.body.i,{
-                nome: req.body.nome,
-                endereco: req.body.endereco,
-                telefone: req.body.telefone
-            },
-        )
 })
 
 //delete get
