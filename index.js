@@ -49,7 +49,14 @@ app.get('/edit/:id',function(req,res){
 
 //update post
 app.post('/edit/:id',function(req,res){
-    res.render('editar.ejs',{})
+    res.render('editar.ejs',{
+        Aluno.findByIdAndUpdate(
+            req.body.i,{
+                nome: req.body.nome,
+                endereco: req.body.endereco,
+                telefone: req.body.telefone
+            },
+        )
 })
 
 //delete get
@@ -62,6 +69,7 @@ app.get('/del/:id',function(req,res){
         }
     });
 })
+
 
 app.listen(3000,function(){
     console.log("Estou escutando na porta 3000!!")
