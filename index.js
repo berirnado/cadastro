@@ -1,8 +1,11 @@
-const express = require('express')
-var app = express()
-var bodyparser = require('body-parser')
-var Aluno = require('./model/aluno')
-var flash = require('flash');
+const express    = require('express');
+var app          = express();
+var bodyparser   = require('body-parser;')
+var Aluno        = require('./model/aluno');
+var flash        = require('req-flash');
+var cookieParser = require('cookie-parser');
+var session      = require('express-session');
+
 
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: false }))
