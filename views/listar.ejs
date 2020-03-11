@@ -5,27 +5,27 @@
 </form>
 <table>
     <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Endereço</th>
-        <th>Telefone</th>
-        <th>Edita</th>
-        <th>Deleta</th>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>ENDEREÇO</th>
+        <th>TELEFONE</th>
+        <th>EDITAR</th>
+        <th>DELETAR</th>
     </tr>
     <% listaAlunos.forEach(function(aluno){ %>
     <tr>
-        <th><%=aluno._id%></th>
-        <th><%=aluno.nome%></th>
-        <th><%=aluno.endereco%></th>
-        <th><%=aluno.telefone%></th>
-        <th>
+        <td><%=aluno._id%></td>
+        <td><%=aluno.nome%></td>
+        <td><%=aluno.endereco%></td>
+        <td><%=aluno.telefone%></td>
+        <td>
             <a href="/edit/<%=aluno._id%>"><img src="edit.png" alt="Botão de Editar"></a>
-        </th>
-        <th>
+        </td>
+        <td>
             <a href="/del/<%=aluno._id%>">
                 <img src="delete.png" alt="Botão de Deletar">
             </a>
-        </th>
+        </td>
     </tr>
     <% }) %>
 </table>
